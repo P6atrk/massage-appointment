@@ -1,0 +1,13 @@
+masszázs időpontfoglaló alkalmazás
+
+-oldalak:
+home page? (bejelentkezés, regisztráció gombok)
+bejelentkezés
+regisztráció
+időpontfoglalás
+	masszázsfajta (név, idő, pénz)
+	masszőr (név, leírás, beosztás)
+	időpont (minden nap 8-20 között masszázsfajta idő szerint)
+rólunk (+kapcsolat)
+foglalt időpontjaim oldal
+	minden időpont

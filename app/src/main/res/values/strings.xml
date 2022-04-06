@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">massage-appointment</string>
+    <string name="app_name">Masszázs időpontfoglaló</string>
+    <string name="log_in">Bejelentkezés</string>
+    <string name="email_address">Email cím</string>
+    <string name="password">Jelszó</string>
+    <string name="sign_up">Regisztráció</string>
+    <string name="about">Rólunk</string>
+    <string name="massage_appointment">Masszázs időpontfoglalás</string>
+    <string name="placeholder">[PLACEHOLDER]</string>
+    <string name="log_out">Kijelentkezés</string>
+    <string name="about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec accumsan arcu. Suspendisse quis metus sed odio porta maximus in ut diam. Aenean lobortis bibendum justo, id luctus purus feugiat porttitor. Nunc fringilla urna eget diam rhoncus, condimentum finibus augue interdum. Ut posuere tincidunt nulla id mattis. Sed in pellentesque urna, sed tristique sapien. Vestibulum vehicula sapien nec placerat ultricies. Aenean elit nisl, tempor efficitur ante ornare, semper sodales nibh. Duis sed felis mollis, fermentum ante sit amet, maximus lorem. Nunc placerat ante non quam vestibulum sodales ac sit amet leo. Mauris pharetra commodo feugiat. Nam cursus vestibulum sapien, non accumsan ipsum facilisis id.</string>
+    <string name="error_message_simple">Hiba, kérlek ellenőrizd az adataidat!</string>
 </resources>
