@@ -1,4 +1,3 @@
-user(email, name, tel, password)
-masseur(name, desc)
-massage(name, price, time)
-appointment(date, masseur.name, user.email, massage.name)
+masseur(*name*, desc)
+massage(*name*, price, time)
+appointment(*date*, *masseur.name*, /user.email/, massage.name)

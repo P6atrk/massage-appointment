@@ -7,9 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import hu.p6atrk.massage_appointment.book.Book;
+import hu.p6atrk.massage_appointment.book.MassageSelect;
 
 public class About extends AppCompatActivity {
 
@@ -59,5 +63,10 @@ public class About extends AppCompatActivity {
     private void goToHomePage() {
         Intent homePageIntent = new Intent(this, HomePage.class);
         startActivity(homePageIntent);
+    }
+
+    public void goToBook(View view) {
+        Intent bookIntent = new Intent(this, Book.class);
+        startActivity(bookIntent);
     }
 }

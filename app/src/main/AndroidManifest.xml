@@ -10,8 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Massageappointment">
         <activity
-            android:name=".Book"
+            android:name=".book.MasseurSelect"
             android:exported="false" />
+        <activity
+            android:name=".book.Book"
+            android:exported="false"
+            android:label="@string/book" />
+        <activity
+            android:name=".book.MassageSelect"
+            android:exported="false"
+            android:label="@string/massage_select" />
         <activity
             android:name=".About"
             android:exported="false"

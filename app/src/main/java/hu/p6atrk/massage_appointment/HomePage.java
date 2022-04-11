@@ -11,6 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+// TODO fektetett design
+
 public class HomePage extends AppCompatActivity {
     //private static final String TAG = HomePage.class.getName();
     private FirebaseAuth mAuth;
