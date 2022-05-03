@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Massageappointment">
         <activity
+            android:name=".appointment.AppointmentList"
+            android:exported="false" />
+        <activity
+            android:name=".appointment.AppointmentItem"
+            android:exported="false" />
+        <activity
             android:name=".book.MasseurSelect"
             android:exported="false" />
         <activity
@@ -25,17 +31,17 @@
             android:exported="false"
             android:label="@string/about" />
         <activity
-            android:name=".LogIn"
+            android:name=".home.LogIn"
             android:exported="false"
             android:label="@string/log_in"
-            android:parentActivityName=".HomePage" />
+            android:parentActivityName=".home.HomePage" />
         <activity
-            android:name=".SignUp"
+            android:name=".home.SignUp"
             android:exported="false"
             android:label="@string/sign_up"
-            android:parentActivityName=".HomePage" />
+            android:parentActivityName=".home.HomePage" />
         <activity
-            android:name=".HomePage"
+            android:name=".home.HomePage"
             android:exported="true"
             android:label="@string/massage_appointment">
             <intent-filter>

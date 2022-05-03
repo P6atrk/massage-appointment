@@ -1,5 +1,6 @@
 package hu.p6atrk.massage_appointment.book;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import hu.p6atrk.massage_appointment.About;
-import hu.p6atrk.massage_appointment.HomePage;
 import hu.p6atrk.massage_appointment.R;
 
 public class MassageItemAdapter extends RecyclerView.Adapter<MassageItemAdapter.ViewHolder> {
@@ -42,9 +41,12 @@ public class MassageItemAdapter extends RecyclerView.Adapter<MassageItemAdapter.
         holder.massageItemBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bookIntent = new Intent(context, Book.class);
-                context.startActivity(bookIntent);
-                // TODO megcsinálni, hogy átadja az adatot, arról hogy melyiket választotta
+                Intent intent = new Intent();
+                intent.putExtra("name", item.getName());
+                intent.putExtra("price", item.getPrice());
+                intent.putExtra("time", item.getTime());
+                ((Activity)context).setResult(Activity.RESULT_OK, intent);
+                ((Activity)context).finish();
             }
         });
     }

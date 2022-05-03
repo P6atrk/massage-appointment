@@ -7,8 +7,8 @@
     tools:context=".book.Book">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="391dp"
+        android:id="@+id/bookToolbar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
@@ -27,41 +27,46 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/bookToolbar"
         app:layout_constraintVertical_bias="0.029" />
 
     <TextView
-        android:id="@+id/bookMassageText"
+        android:id="@+id/bookMassageNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/placeholder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookMassageLabel"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <TextView
-        android:id="@+id/bookMasseurText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder"
+        android:autoText="false"
+        android:gravity="center"
+        android:hint="Válassz masszázst!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookMassageLabel"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/bookMasseurNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Válassz masszőrt!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookMasseurLabel"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/bookMassageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToMassageSelect"
-        app:layout_constraintBottom_toBottomOf="@+id/bookMassageText"
+        app:layout_constraintBottom_toBottomOf="@+id/bookMassageNameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bookMassageText"
-        app:layout_constraintTop_toTopOf="@+id/bookMassageText"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toEndOf="@+id/bookMassageNameText"
+        app:layout_constraintTop_toTopOf="@+id/bookMassageNameText"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/icon_right_arrow" />
 
     <ImageButton
@@ -69,10 +74,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goToMasseurSelect"
-        app:layout_constraintBottom_toBottomOf="@+id/bookMasseurText"
+        app:layout_constraintBottom_toBottomOf="@+id/bookMasseurNameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bookMasseurText"
-        app:layout_constraintTop_toTopOf="@+id/bookMasseurText"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toEndOf="@+id/bookMasseurNameText"
+        app:layout_constraintTop_toTopOf="@+id/bookMasseurNameText"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/icon_right_arrow" />
 
     <TextView
@@ -84,32 +91,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookMasseurText"
-        app:layout_constraintVertical_bias="0.079" />
-
-    <EditText
-        android:id="@+id/bookDateTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookDateLabel"
-        app:layout_constraintVertical_bias="0.038" />
-
-    <EditText
-        android:id="@+id/bookTimeTextTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookDateTextDate"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintTop_toBottomOf="@+id/bookMasseurNameText"
+        app:layout_constraintVertical_bias="0.071" />
 
     <TextView
         android:id="@+id/bookMasseurLabel"
@@ -118,9 +101,10 @@
         android:text="Masszőr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookMassageText"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintTop_toBottomOf="@+id/bookMassageTimeText"
+        app:layout_constraintVertical_bias="0.062" />
 
     <Button
         android:id="@+id/bookBookButton"
@@ -130,6 +114,86 @@
         android:text="Időpontfoglalás"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookTimeTextTime" />
+        app:layout_constraintTop_toBottomOf="@+id/bookTimeText"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <TextView
+        android:id="@+id/bookDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Év-Hónap-Nap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookDateLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/bookTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Óra:Perc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookDateText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/bookDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:onClick="onDatePick"
+        app:layout_constraintBottom_toBottomOf="@+id/bookTimeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintStart_toEndOf="@+id/bookDateText"
+        app:layout_constraintTop_toTopOf="@+id/bookDateText"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/icon_datepicker" />
+
+    <TextView
+        android:id="@+id/bookMassagePriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Ár"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookMassageNameText"
+        app:layout_constraintVertical_bias="0.001" />
+
+    <TextView
+        android:id="@+id/bookMassageTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Időtartam"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookMassagePriceText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/bookErrorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hiba, kérlek tölts ki minden mezőt!"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookBookButton"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

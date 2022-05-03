@@ -37,9 +37,9 @@ public class MassageSelect extends AppCompatActivity {
 
         massageItems = new ArrayList<>();
         db = FirebaseFirestore.getInstance();
-
-        Toolbar toolbar = findViewById(R.id.aboutToolbar);
-        setSupportActionBar(toolbar);
+        // TODO Toolbar
+        //Toolbar toolbar = findViewById(R.id.aboutToolbar);
+        //setSupportActionBar(toolbar);
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.massageSelectRecyclerView);

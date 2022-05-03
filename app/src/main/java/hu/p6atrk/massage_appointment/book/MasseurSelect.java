@@ -32,13 +32,13 @@ public class MasseurSelect extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.masseur_item);
+        setContentView(R.layout.masseur_select);
 
         masseurItems = new ArrayList<>();
         db = FirebaseFirestore.getInstance();
         // TODO toolbarokat kijavitani
-        Toolbar toolbar = findViewById(R.id.aboutToolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.aboutToolbar);
+        //setSupportActionBar(toolbar);
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.masseurSelectRecyclerView);

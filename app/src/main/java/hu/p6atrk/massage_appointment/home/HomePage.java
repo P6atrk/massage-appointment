@@ -1,15 +1,17 @@
-package hu.p6atrk.massage_appointment;
+package hu.p6atrk.massage_appointment.home;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import hu.p6atrk.massage_appointment.About;
+import hu.p6atrk.massage_appointment.R;
 
 // TODO fektetett design
 

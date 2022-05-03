@@ -1,5 +1,6 @@
 package hu.p6atrk.massage_appointment.book;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -39,9 +40,10 @@ public class MasseurItemAdapter extends RecyclerView.Adapter<MasseurItemAdapter.
         holder.masseurItemBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bookIntent = new Intent(context, Book.class);
-                context.startActivity(bookIntent);
-                // TODO megcsinálni, hogy átadja az adatot, arról hogy melyiket választotta
+                Intent intent = new Intent();
+                intent.putExtra("name", item.getName());
+                ((Activity)context).setResult(Activity.RESULT_OK, intent);
+                ((Activity)context).finish();
             }
         });
     }

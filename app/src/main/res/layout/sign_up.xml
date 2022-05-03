@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".home.SignUp">
 
     <Button
         android:id="@+id/signUpSignUpButton"
@@ -47,7 +47,7 @@
         android:id="@+id/signUpPasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="Jelszó"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
         android:id="@+id/signUpFullNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Full name"
+        android:text="Teljes név"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -81,7 +81,7 @@
         android:id="@+id/signUpTelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone number"
+        android:text="Telefonszám"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/signUpErrorTextView"
+        android:id="@+id/signUpErrorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/error_message_simple"

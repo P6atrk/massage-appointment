@@ -1,8 +1,9 @@
-package hu.p6atrk.massage_appointment;
+package hu.p6atrk.massage_appointment.home;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,28 +11,31 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SignUp extends AppCompatActivity {
+import hu.p6atrk.massage_appointment.R;
+
+public class LogIn extends AppCompatActivity {
+
+    private static final String TAG = LogIn.class.getName();
 
     private FirebaseAuth mAuth;
 
-    private String fullName;
     private String email;
-    private String tel;
     private String password;
-
     private TextView errorMessageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up);
+        setContentView(R.layout.log_in);
 
-        Toolbar toolbar = findViewById(R.id.signUpToolbar);
+        Toolbar toolbar = findViewById(R.id.logInToolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAuth = FirebaseAuth.getInstance();
+
+        errorMessageTextView = findViewById(R.id.logInErrorTextView);
     }
 
     @Override
@@ -39,26 +43,24 @@ public class SignUp extends AppCompatActivity {
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
+        if(currentUser != null){
             finish();
         }
     }
 
-    public void onSignUp(View view) {
-        fullName = ((TextView)findViewById(R.id.signUpFullNameTextView)).getText().toString();
-        email = ((TextView)findViewById(R.id.signUpEmailTextView)).getText().toString();
-        tel = ((TextView)findViewById(R.id.signUpTelTextView)).getText().toString();
-        password = ((TextView)findViewById(R.id.signUpPasswordTextView)).getText().toString();
+    public void logInButton(View view) {
+        email = ((TextView)findViewById(R.id.logInEmailTextView)).getText().toString();
+        password = ((TextView)findViewById(R.id.logInPasswordTextView)).getText().toString();
 
         if(password.equals("") || email.equals("")) {
             errorMessageTextView.setVisibility(View.VISIBLE);
             return;
         }
 
-
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        Toast.makeText(this, "Sikeres bejelentkezés!", Toast.LENGTH_LONG).show();
                         finish();
                     } else {
                         errorMessageTextView.setVisibility(View.VISIBLE);
