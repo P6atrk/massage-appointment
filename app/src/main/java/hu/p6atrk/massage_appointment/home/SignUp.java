@@ -6,7 +6,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,11 +41,6 @@ public class SignUp extends AppCompatActivity {
         signUpEmailTextView = findViewById(R.id.signUpEmailTextView);
         signUpTelTextView = findViewById(R.id.signUpTelTextView);
         signUpPasswordTextView = findViewById(R.id.signUpPasswordTextView);
-
-
-        Toolbar toolbar = findViewById(R.id.signUpToolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();

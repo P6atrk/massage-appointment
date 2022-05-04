@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="hu.p6atrk.massage_appointment">
 
     <application
@@ -14,36 +15,31 @@
             android:exported="false" />
         <activity
             android:name=".appointment.AppointmentItem"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".book.MasseurSelect"
             android:exported="false" />
         <activity
             android:name=".book.Book"
-            android:exported="false"
-            android:label="@string/book" />
+            android:exported="false" />
         <activity
             android:name=".book.MassageSelect"
-            android:exported="false"
-            android:label="@string/massage_select" />
+            android:exported="false" />
         <activity
             android:name=".About"
-            android:exported="false"
-            android:label="@string/about" />
+            android:exported="false" />
         <activity
             android:name=".home.LogIn"
             android:exported="false"
-            android:label="@string/log_in"
             android:parentActivityName=".home.HomePage" />
         <activity
             android:name=".home.SignUp"
             android:exported="false"
-            android:label="@string/sign_up"
             android:parentActivityName=".home.HomePage" />
         <activity
             android:name=".home.HomePage"
-            android:exported="true"
-            android:label="@string/massage_appointment">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

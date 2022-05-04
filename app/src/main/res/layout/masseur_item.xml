@@ -31,7 +31,6 @@
         android:id="@+id/masseurItemBookButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/placeholder"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/masseurItemDescLabel"
         app:layout_constraintEnd_toEndOf="parent"

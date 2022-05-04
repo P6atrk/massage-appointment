@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -49,6 +51,9 @@ public class MassageItemAdapter extends RecyclerView.Adapter<MassageItemAdapter.
                 ((Activity)context).finish();
             }
         });
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.list_alpha);
+        holder.itemView.startAnimation(animation);
+
     }
 
     @Override

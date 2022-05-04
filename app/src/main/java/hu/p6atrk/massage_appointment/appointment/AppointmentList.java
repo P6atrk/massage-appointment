@@ -1,12 +1,12 @@
 package hu.p6atrk.massage_appointment.appointment;
 
-import androidx.annotation.RequiresApi;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Build;
-import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -16,16 +16,21 @@ import java.util.ArrayList;
 
 import hu.p6atrk.massage_appointment.R;
 import hu.p6atrk.massage_appointment.book.MassageItem;
-import hu.p6atrk.massage_appointment.book.MassageSelect;
-import hu.p6atrk.massage_appointment.book.MasseurItem;
+import hu.p6atrk.massage_appointment.home.LogIn;
 
 public class AppointmentList extends AppCompatActivity {
+    private static final String TAG = LogIn.class.getName();
 
-    AppointmentItemAdapter adapter;
-    ArrayList<AppointmentItem> appointmentItems;
-    ArrayList<MassageItem> massageItems;
-    FirebaseFirestore firestore;
-    FirebaseAuth firebaseAuth;
+    private AppointmentItemAdapter adapter;
+    private ArrayList<AppointmentItem> appointmentItems;
+    private ArrayList<MassageItem> massageItems;
+
+    private String email;
+
+    private FirebaseFirestore firestore;
+    private FirebaseAuth firebaseAuth;
+
+    private final int REQUEST_APPOINTMENT = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +43,17 @@ public class AppointmentList extends AppCompatActivity {
         appointmentItems = new ArrayList<>();
         massageItems = new ArrayList<>();
 
-        initializeList();
-        // set up the RecyclerView
+        email = firebaseAuth.getCurrentUser().getEmail();
+
         RecyclerView recyclerView = findViewById(R.id.appointmentListRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AppointmentItemAdapter(this, appointmentItems);
         recyclerView.setAdapter(adapter);
+
+        initializeList(getIntent().getBooleanExtra("showOldAppointments", false));
     }
 
-    private void initializeList() {
-        // TODO megoldani hogy a user-en belul legyen a user/appointment
-        String email = firebaseAuth.getCurrentUser().getEmail();
+    private void initializeList(boolean showOldAppointments) {
         firestore.collection("massage").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
@@ -58,29 +63,40 @@ public class AppointmentList extends AppCompatActivity {
                             document.getLong("time").intValue()
                     ));
                 }
-            }
-        }); // TODO Async-el megcsinálni mert lehet nem kapom meg a massageItem-eket mire kellene használni
-        firestore.collection("appointment").whereEqualTo("email", email).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                for (QueryDocumentSnapshot document : task.getResult()) {
-                    int time = -1, price = -1;
-                    for (MassageItem massageItem : massageItems) {
-                        if(massageItem.getName().equals(document.getString("massageName"))) {
-                            time = massageItem.getTime();
-                            price = massageItem.getPrice();
+                firestore.collection("appointment")
+                        .whereEqualTo("email", email)
+                        .get().addOnCompleteListener(task2 -> {
+                    if (task2.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task2.getResult()) {
+                            int time = -1, price = -1;
+                            for (MassageItem massageItem : massageItems) {
+                                if (massageItem.getName().equals(document.getString("massageName"))) {
+                                    time = massageItem.getTime();
+                                    price = massageItem.getPrice();
+                                }
+                            }
+                            appointmentItems.add(new AppointmentItem(
+                                    document.getString("massageName"),
+                                    document.getString("masseurName"),
+                                    document.getString("date"),
+                                    document.getString("email"),
+                                    time,
+                                    price,
+                                    document.getId()
+                            ));
                         }
+                        adapter.notifyDataSetChanged();
                     }
-                    appointmentItems.add(new AppointmentItem(
-                            document.getString("massageName"),
-                            document.getString("masseurName"),
-                            document.getTimestamp("date").toDate(),
-                            document.getString("email"),
-                            time,//time,
-                            price//price
-                    ));
-                }
-                adapter.notifyDataSetChanged();
+                });
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_APPOINTMENT) {
+            finish();
+        }
     }
 }
