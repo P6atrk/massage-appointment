@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "75263323719",
+    "project_id": "massage-appointment-f4987",
+    "storage_bucket": "massage-appointment-f4987.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75263323719:android:5889bd7cf965c6cf858b62",
+        "android_client_info": {
+          "package_name": "hu.p6atrk.massage_appointment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75263323719-io6uj5dod1jm1d7l7ndkk71vv5osv6vt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.p6atrk.massage_appointment",
+            "certificate_hash": "21e9668c95ec0c3050c578ea1aa328ee1da7b110"
+          }
+        },
+        {
+          "client_id": "75263323719-h9m404su5angp7ev9hu9s6ag5du8rdnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbu7Mu5cuDNWfKxICcqGue55O9OFcgkYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75263323719-h9m404su5angp7ev9hu9s6ag5du8rdnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
